@@ -62,15 +62,17 @@ async function cadastroPost(req: Request, res: Response) {
   }
 }
 
-function home(req: Request, res: Response, next: any){
-    res.render('home');
+async function home(req: Request, res: Response, next: any){
+   const totalClientes = await ClientRepository.count();
+    res.render('home', {totalClientes});
 }
 
 async function index(req: Request, res: Response, next: any){
     const clients = await ClientRepository.findAll();
+    const totalClientes = await ClientRepository.count();
     const erro = req.query.erro;
 
-    res.render('index', {clients: clients, erro: erro})
+    res.render('index', {clients: clients, erro: erro, totalClientes})
 }
 
 async function show(req: Request, res: Response, next: any){
@@ -78,7 +80,7 @@ async function show(req: Request, res: Response, next: any){
     const id = Number(req.params.id);
     const client = await ClientRepository.findByPk(id)
 
-    res.render('show', {client: client})
+    res.render('show', {client: client,})
 }
 
 function create(req: Request, res: Response, next: any){

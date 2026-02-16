@@ -1,24 +1,51 @@
 extends app.pug
+
 block titulo
-    title Cliente #{client.nome}
+  title #{client.nome} — ClientManager
+
+block topbar-title
+  span.topbar-title
+    a(href="/home" style="color: var(--text-2); text-decoration: none;") Início
+    span.topbar-sep  ›
+    a(href="/clients" style="color: var(--text-2); text-decoration: none;") Clientes
+    span.topbar-sep  ›
+    strong #{client.nome}
 
 block conteudo
-    .card
-        h5.card-header Detalhes do(a) cliente #{client.nome}
-        .card-body
-            p
-                strong ID: 
-                | #{client.id}
-            p
-                strong Name: 
-                | #{client.nome}
-            p
-                strong Email: 
-                | #{client.email}
-            p
-                strong Data de Criação: 
-                | #{client.createdAt}  
-            p
-                strong Data de Atualização: 
-                | #{client.updatedAt}
-            a(href="/clients/").btn.btn-success Voltar para a lista 
+  .page-header
+    h1 #{client.nome}
+    p Informações detalhadas do cliente.
+
+  .card(style="max-width: 640px;")
+    .card-header
+      span.card-header-dot
+      | Dados do Cliente
+    .card-body
+      .detail-list
+        .detail-item
+          span.detail-key ID
+          span.detail-value.mono ##{client.id}
+        .detail-item
+          span.detail-key Nome
+          span.detail-value #{client.nome}
+        .detail-item
+          span.detail-key Email
+          span.detail-value.email #{client.email}
+        .detail-item
+          span.detail-key Criado em
+          span.detail-value.mono #{client.createdAt}
+        .detail-item
+          span.detail-key Atualizado em
+          span.detail-value.mono #{client.updatedAt}
+
+  .form-footer
+    a.btn.btn-ghost(href="/clients")
+      svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+        line(x1="19" y1="12" x2="5" y2="12")
+        polyline(points="12 19 5 12 12 5")
+      | Voltar para Clientes
+    a.btn.btn-primary(href=`/clients/${client.id}/edit`)
+      svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+        path(d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7")
+        path(d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z")
+      | Editar Cliente

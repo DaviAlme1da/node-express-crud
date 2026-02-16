@@ -1,14 +1,61 @@
 extends app.pug
+
 block titulo
-    title Atualizar Cliente
-    
+  title Editar #{client.nome} — ClientManager
+
+block topbar-title
+  span.topbar-title
+    a(href="/home" style="color: var(--text-2); text-decoration: none;") Início
+    span.topbar-sep  ›
+    a(href="/clients" style="color: var(--text-2); text-decoration: none;") Clientes
+    span.topbar-sep  ›
+    a(href=`/clients/${client.id}` style="color: var(--text-2); text-decoration: none;") #{client.nome}
+    span.topbar-sep  ›
+    strong Editar
+
 block conteudo
-    h1 Atualizar Cliente
-    form(action=`/clients/${client.id}?_method=PUT`, method="POST")
-        .mb-3
-            label.form-label(for='name') Nome
-            input#name.form-control(type='text' value=`${client.nome}` required name='nome' placeholder='Digite o nome')
-        .mb-3
-            label.form-label(for='email') Email
-            input#email.form-control(type='email' value=`${client.email}` required name='email' placeholder='Digite o email')
-        button(type='submit' value='submit').btn.btn-success Atualizar
+  .page-header
+    h1 Editar Cliente
+    p Atualize as informações de #{client.nome}.
+
+  .card(style="max-width: 520px;")
+    .card-header
+      span.card-header-dot
+      | Dados do Cliente
+    .card-body
+      form(action=`/clients/${client.id}?_method=PUT` method="POST")
+        .form-group
+          label.form-label(for="nome") Nome
+          input#nome.form-control(
+            type="text"
+            name="nome"
+            value=`${client.nome}`
+            required
+            placeholder="Digite o nome completo"
+            autocomplete="off"
+          )
+        .form-group
+          label.form-label(for="email") Email
+          input#email.form-control(
+            
+            type="email"
+            name="email"
+            value=`${client.email}`
+            required
+            placeholder="Digite o endereço de email"
+            autocomplete="off"
+          )
+        .form-footer
+          a.btn.btn-ghost(href=`/clients/${client.id}`)
+            svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              line(x1="19" y1="12" x2="5" y2="12")
+              polyline(points="12 19 5 12 12 5")
+            | Cancelar
+          button.btn.btn-primary(type="submit")
+            svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              path(d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z")
+              polyline(points="17 21 17 13 7 13 7 21")
+              polyline(points="7 3 7 8 15 8")
+            | Salvar Alterações
+
+            

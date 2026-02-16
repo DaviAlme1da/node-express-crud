@@ -1,7 +1,37 @@
 extends app.pug
+
 block titulo
-    title Não Contem Permição
-    
+  title Sem Permissão — ClientManager
+
+block topbar-title
+  span.topbar-title
+    strong Acesso Restrito
+
 block conteudo
-    h1 Você não tem permissão.
-    
+  .card(style="max-width: 500px; margin: 40px auto;")
+    .card-body
+      .state-box
+        .state-icon(style="background: var(--danger-dim); border-color: var(--danger);")
+          svg(viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--danger);")
+            circle(cx="12" cy="12" r="10")
+            line(x1="12" y1="8" x2="12" y2="12")
+            line(x1="12" y1="16" x2="12.01" y2="16")
+
+        h2.state-title Acesso Negado
+        p.state-desc
+          | Você não possui permissão para realizar esta ação. 
+          | Apenas administradores podem criar, editar ou excluir clientes.
+
+        div(style="display: flex; gap: 12px; margin-top: 8px;")
+          a.btn.btn-ghost(href="/clients")
+            svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              line(x1="19" y1="12" x2="5" y2="12")
+              polyline(points="12 19 5 12 12 5")
+            | Voltar
+          a.btn.btn-secondary(href="/home")
+            svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              rect(x="3" y="3" width="7" height="7")
+              rect(x="14" y="3" width="7" height="7")
+              rect(x="14" y="14" width="7" height="7")
+              rect(x="3" y="14" width="7" height="7")
+            | Ir para Início
