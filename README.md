@@ -1,4 +1,4 @@
-#📌 Sistema Web com CRUD, Autenticação e Controle de Acesso
+# 📌 Sistema Web com CRUD, Autenticação e Controle de Acesso
 
 Aplicação web desenvolvida em Node.js utilizando Express e Sequelize, com foco em boas práticas de organização de projeto, autenticação de usuários e controle de permissões por perfil.
 
@@ -8,7 +8,7 @@ Este projeto foi desenvolvido com finalidade acadêmica e para consolidação do
 
 ---
 
-##🚀 Funcionalidades
+## 🚀 Funcionalidades
 
 - Cadastro de usuários
 - Login de usuários
@@ -22,7 +22,7 @@ Este projeto foi desenvolvido com finalidade acadêmica e para consolidação do
 
 ---
 
-##🧠 Objetivo do projeto
+## 🧠 Objetivo do projeto
 
 Este projeto tem como objetivo:
 
@@ -34,7 +34,7 @@ Este projeto tem como objetivo:
 
 ---
 
-##🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 
 - Node.js
 - Express
@@ -45,7 +45,7 @@ Este projeto tem como objetivo:
 
 ---
 
-##⚙️ Como executar o projeto
+## ⚙️ Como executar o projeto
 
 Clone o repositório:
 git clone <url-do-repositorio>
@@ -61,17 +61,17 @@ npm start
 
 ---
 
-##🔐 Perfis de acesso
+## 🔐 Perfis de acesso
 
 O sistema possui dois tipos de usuários:
 
-###👨‍💼 Administrador
+### 👨‍💼 Administrador
 
 - Possui acesso completo às funcionalidades do sistema
 - Pode realizar todas as operações de CRUD
 - Pode gerenciar informações do sistema
 
-###👤 Usuário comum
+### 👤 Usuário comum
 
 - Possui acesso restrito
 - Pode apenas visualizar os dados permitidos
@@ -79,7 +79,7 @@ O sistema possui dois tipos de usuários:
 
 ---
 
-##🧩 Estrutura básica do projeto
+## 🧩 Estrutura básica do projeto
 
 - routes – rotas da aplicação
 - controllers – regras de negócio
@@ -89,9 +89,9 @@ O sistema possui dois tipos de usuários:
 
 ---
 
-##📦 Atualizações e versões do projeto
+## 📦 Atualizações e versões do projeto
 
-###✅ Versão 1.0 – CRUD básico
+### ✅ Versão 1.0 – CRUD básico
 
 Implementação das operações:
 
@@ -101,7 +101,7 @@ Implementação das operações:
 - excluir registros
 - Estrutura inicial do projeto com Express e Sequelize
 
-###✅ Versão 2.0 – Autenticação de usuários
+### ✅ Versão 2.0 – Autenticação de usuários
 
 Implementação do sistema de:
 
@@ -110,7 +110,7 @@ Implementação do sistema de:
 - Criação de sessões/autenticação
 - Proteção básica de rotas
 
-###✅ Versão 3.0 – Controle de acesso por perfil
+### ✅ Versão 3.0 – Controle de acesso por perfil
 
 Implementação de perfis de usuários:
 
@@ -121,12 +121,12 @@ Implementação de perfis de usuários:
 
 ---
 
-##📚 Observações
+## 📚 Observações
 
 Este projeto faz parte do meu processo de aprendizado em desenvolvimento web e back-end, com foco em boas práticas, organização de código e entendimento de segurança e controle de acesso.
 
 ---
 
-##👨‍🎓 Autor
+## 👨‍🎓 Autor
 
 Desenvolvido por Davi Lucas de Almeida, estudante de Análise e Desenvolvimento de Sistemas.
