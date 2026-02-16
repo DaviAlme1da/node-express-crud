@@ -4,7 +4,7 @@ Aplicação web desenvolvida em Node.js utilizando Express e Sequelize, com foco
 
 O sistema implementa operações completas de CRUD, além de possuir login, cadastro de usuários e controle de acesso baseado em papéis (roles).
 
-Este projeto foi desenvolvido com finalidade acadêmica e para consolidação dos conhecimentos em desenvolvimento back-end.
+Este projeto foi desenvolvido com finalidade acadêmica e para consolidação dos conhecimentos em desenvolvimento back-end e front-end.
 
 ---
 
@@ -13,7 +13,7 @@ Este projeto foi desenvolvido com finalidade acadêmica e para consolidação do
 - Cadastro de usuários
 - Login de usuários
 - Sistema de autenticação
-- CRUD completo de registros
+- CRUD completo de clientes
 - Controle de acesso por perfil:
   - Administrador
   - Usuário comum
@@ -69,13 +69,12 @@ O sistema possui dois tipos de usuários:
 
 - Possui acesso completo às funcionalidades do sistema
 - Pode realizar todas as operações de CRUD
-- Pode gerenciar informações do sistema
 
 ### 👤 Usuário comum
 
 - Possui acesso restrito
 - Pode apenas visualizar os dados permitidos
-- Não possui permissão para alterar registros
+- Não possui permissão para editar, criar e excluir 
 
 ---
 
@@ -107,8 +106,6 @@ Implementação do sistema de:
 
 - cadastro de usuários
 - login
-- Criação de sessões/autenticação
-- Proteção básica de rotas
 
 ### ✅ Versão 3.0 – Controle de acesso por perfil
 
@@ -118,6 +115,13 @@ Implementação de perfis de usuários:
 - usuário comum
 - Criação de middleware de autorização
 - Restrições de acesso de acordo com o perfil do usuário
+  
+### ✅ A Versão 4.0 - Mudança no Layout e autenticação completa:
+
+Implementação:
+
+- Design moderno 
+- Proteção total de rotas (bloqueio de acesso direto via URL)
 
 ---
 
