@@ -1,8 +1,39 @@
 extends app.pug
 
 block titulo
-    title Home
+  title Home — ClientManager
+
+block topbar-title
+  span.topbar-title
+    strong Início
+    span.topbar-sep  ›
+    
 
 block conteudo
-    h1 Página inicial
-    p Acesse a via de clientes no menu.
+  .page-header
+    h1 Bem-vindo
+    p Gerencie seus clientes de forma simples e eficiente.
+
+  .stats-grid
+    .stat-card
+      .stat-icon
+        svg(viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+          path(d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2")
+          circle(cx="9" cy="7" r="4")
+          path(d="M23 21v-2a4 4 0 0 0-3-3.87")
+          path(d="M16 3.13a4 4 0 0 1 0 7.75")
+      p.stat-label Total de Clientes
+      .stat-value #{totalClientes}
+
+  .card
+    .card-header
+      span.card-header-dot
+      | Acesso Rápido
+    .card-body
+      p(style="color: var(--text-2); font-size: 14px; margin-bottom: 20px;") Use o atalho abaixo para navegar pelo sistema.
+      div(style="display: flex; gap: 12px; flex-wrap: wrap;")
+        a.btn.btn-primary(href="/clients")
+          svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+            path(d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2")
+            circle(cx="9" cy="7" r="4")
+          | Ver Clientes

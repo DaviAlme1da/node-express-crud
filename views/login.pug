@@ -1,31 +1,254 @@
 doctype html
 html(lang="pt-BR")
   head
-    title Página de Login
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet")
+    title Login — ClientManager
     style.
-      body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-      form { border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 300px; }
-      div { margin-bottom: 15px; }
-      label { display: block; margin-bottom: 5px; }
-      input { width: 100%; padding: 8px; box-sizing: border-box; }
-      button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-      button:hover { background-color: #0056b3; }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --bg:          #0f1117;
+        --surface:     #181c24;
+        --surface-2:   #1f2430;
+        --border:      #2a2f3e;
+        --accent:      #00c896;
+        --accent-dim:  #00c89620;
+        --danger:      #ff4e5b;
+        --danger-dim:  #ff4e5b20;
+        --text-1:      #e8eaf0;
+        --text-2:      #8b90a0;
+        --text-3:      #555c70;
+        --radius:      10px;
+        --radius-sm:   6px;
+        --shadow:      0 4px 24px rgba(0,0,0,.4);
+        --font:        'DM Sans', sans-serif;
+        --transition:  0.18s ease;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text-1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        font-size: 15px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .auth-wrap {
+        width: 100%;
+        max-width: 400px;
+        padding: 24px;
+      }
+
+      .auth-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 32px;
+      }
+
+      .auth-logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: var(--accent);
+        border-radius: 10px;
+        text-decoration: none;
+        transition: opacity var(--transition);
+      }
+
+      .auth-logo a:hover { opacity: 0.85; }
+
+      .auth-logo svg {
+        width: 22px;
+        height: 22px;
+        stroke: #0f1117;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .auth-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 36px 32px;
+      }
+
+      .auth-header {
+        margin-bottom: 28px;
+      }
+
+      .auth-header h1 {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--text-1);
+        margin-bottom: 4px;
+      }
+
+      .auth-header p {
+        font-size: 13px;
+        color: var(--text-2);
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--text-2);
+        margin-bottom: 8px;
+      }
+
+      .form-control {
+        width: 100%;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-1);
+        font-family: var(--font);
+        font-size: 14px;
+        padding: 10px 14px;
+        outline: none;
+        transition: border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .form-control::placeholder { color: var(--text-3); }
+
+      .form-control:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-dim);
+      }
+      
+      .form-control:-webkit-autofill,
+      .form-control:-webkit-autofill:hover,
+      .form-control:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px #1f2430 inset;
+        -webkit-text-fill-color: #e8eaf0;
+        border-color: var(--border);
+        transition: background-color 99999s ease-in-out 0s;
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 11px;
+        background: var(--accent);
+        color: #0f1117;
+        border: none;
+        border-radius: var(--radius-sm);
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+        margin-top: 8px;
+        letter-spacing: 0.01em;
+      }
+
+      .btn-submit:hover {
+        background: #00dfa8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(0,200,150,.3);
+      }
+
+      .auth-footer {
+        margin-top: 22px;
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-2);
+      }
+
+      .auth-footer a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity var(--transition);
+      }
+
+      .auth-footer a:hover { opacity: 0.8; }
+
+      .error-box {
+        background: var(--danger-dim);
+        border: 1px solid var(--danger);
+        border-radius: var(--radius-sm);
+        padding: 10px 14px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        color: var(--danger);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .error-box svg {
+        width: 14px;
+        height: 14px;
+        stroke: var(--danger);
+        fill: none;
+        flex-shrink: 0;
+      }
+
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
   body
-    form(action="/login", method="POST")
-      h2 Login
+    .auth-wrap
+      .auth-card
+        .auth-header
+          h1 Bem-vindo de volta
+          p Faça login para acessar o sistema.
 
-      if erro
-        p(style="color: red; margin-bottom: 10px;") #{erro}
+        if erro
+          .error-box
+            svg(viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              circle(cx="12" cy="12" r="10")
+              line(x1="12" y1="8" x2="12" y2="12")
+              line(x1="12" y1="16" x2="12.01" y2="16")
+            | #{erro}
 
-      div
-        label(for="nome") Usuário
-        input(type="text", id="nome", name="nome", required, autofocus)
-      div
-        label(for="senha") Senha
-        input(type="password", id="senha", name="senha", required)
-      
-      div
-          a(href="/cadastro", style="color: #007bff; text-decoration: none;") Cadastre-se
-      
-      button(type="submit") Entrar
-      
+        form(action="/login" method="POST")
+          .form-group
+            label.form-label(for="nome") Usuário
+            input#nome.form-control(
+              type="text"
+              name="nome"
+              required
+              autofocus
+              placeholder="Digite seu usuário"
+              autocomplete="username"
+            )
+          .form-group
+            label.form-label(for="senha") Senha
+            input#senha.form-control(
+              type="password"
+              name="senha"
+              required
+              placeholder="Digite sua senha"
+              autocomplete="current-password"
+            )
+          button.btn-submit(type="submit") Entrar
+
+      .auth-footer
+        | Não tem uma conta?&nbsp;
+        a(href="/cadastro") Cadastre-se
