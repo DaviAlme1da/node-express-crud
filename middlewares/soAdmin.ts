@@ -10,5 +10,5 @@ export default function soAdmin(req: Request, res: Response, next: NextFunction)
     return res.status(403).render("soAdm");
   }
 
-  return next();
+  return next()
 }
