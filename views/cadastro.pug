@@ -1,0 +1,26 @@
+doctype html
+html(lang="pt-BR")
+  head
+    title Página de Cadastro
+    style.
+      body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+      form { border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 300px; }
+      div { margin-bottom: 15px; }
+      label { display: block; margin-bottom: 5px; }
+      input { width: 100%; padding: 8px; box-sizing: border-box; }
+      button { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+      button:hover { background-color: #218838; }
+  body
+    form(action="/cadastro", method="POST")
+      h2 Cadastrar
+      div
+        label(for="name") Nome
+        input(type="text", id="name", name="nome", placeholder="Digite o nome", required, autofocus)
+      div
+        label(for="senha") Senha
+        input(type="password", id="senha", name="senha", placeholder="Digite a senha", required)
+      
+      div
+          a(href="/", style="color: #28a745; text-decoration: none; font-size: 14px;") Já tenho conta (Login)
+      
+      button(type="submit") Enviar
