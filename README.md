@@ -57,7 +57,7 @@ npm install
 
 Configure o banco de dados no arquivo de configuração do projeto.
 Inicie o servidor:
-npm start
+npm run dev
 
 ---
 
